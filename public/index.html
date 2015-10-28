@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="MyApp" ng-controller="nodeSerial">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <form class="navbar-form navbar-left">
+         <div class="input-group">
+           <select ng-click="serialRefresh()" ng-model="selectedPort" class="form-control">
+            <option ng-repeat="a in ports">{{a}}</option>
+          </select>
+          <span class="input-group-btn" ng-switch on="connected">
+          <button ng-switch-when="false" ng-click="connectSerial()"class="btn btn-default form-control">Connect Serial</button>
+          <button ng-switch-when="true" ng-click="disconnectSerial()"class="btn btn-default active form-control">Disconnect Serial</button>
+          </span>
+        </div>
+      </form>
+    </li>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Node Serial Communication</h1>
+  </div>
+  <div class="row">
+    <h1 id="myBox"></h1>
+    <canvas class="center-block" id="myChart" width="400" height="100"></canvas>
+    <div class="form-group form-inline">
+      <button  class="btn btn-danger form-control" ng-click="blinkLed('Red')">Blink Led</button>
+      <button  class="btn btn-success form-control" ng-click="blinkLed('Green')">Blink Led</button>
+      <button  class="btn btn-primary form-control" ng-click="blinkLed('Blue')">Blink Led</button>
+  </div>
+</div>
+</div>
+
+<script src="/bower_components/socket.io-client/dist/socket.io.min.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/smoothie/smoothie.js"></script>
+<script src="/bower_components/jscolor/jscolor.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script>
+
+</script>
+</body>
+</html>
