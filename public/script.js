@@ -26,44 +26,41 @@ app.factory('socket', function ($rootScope) {
 
 var serialPortList = [];
 
-var smoothie = new SmoothieChart({millisPerPixel:43,grid:{fillStyle:'#f3f3f3'},labels:{fillStyle:'#000000'},timestampFormatter:SmoothieChart.timeFormatter});
-smoothie.streamTo(document.getElementById("myChart"));
-
-var line1 = new TimeSeries
-smoothie.addTimeSeries(line1, {lineWidth:2,strokeStyle:'#0021ef'});
-var line2 = new TimeSeries   
-smoothie.addTimeSeries(line2, {lineWidth:2,strokeStyle:'#FF0000'});
-
-
-
-
 app.controller('nodeSerial', function($scope, socket){
+
   $scope.connected = false;
   $scope.ports = ["..."];
 
-  socket.on('Sine1', function (input) {
-      line1.append(new Date().getTime(), input);
+  socket.on('theta1', function (input) {
+    $scope.hoek1 = input;
+    changeAngles("processingCanvas", $scope.hoek1, $scope.hoek2);
+
   });
 
-  socket.on('Second', function (input) {
-      line2.append(new Date().getTime(), input);
+  socket.on('theta2', function (input) {
+    $scope.hoek2 = input;
+    changeAngles("processingCanvas", $scope.hoek1, $scope.hoek2);
   });
 
-  socket.on('serialPorts', function(input){
+  socket.on('DOF', function (input){
+    $scope.DOF = input;
+  })
+
+  socket.on('serialPorts', function (input){
     console.log(input);
     $scope.ports = input;
   });
 
-  socket.on("connectedSerial", function(input){
+  socket.on("connectedSerial", function (input){
     console.log("connected to port: "+input);
     $scope.connected = true;
   });
 
-  socket.on("failed", function(input){
+  socket.on("failed", function (input){
     console.log("failed to connect: "+input);
   });
 
-  socket.on("disconnected", function(input){
+  socket.on("disconnected", function (input){
     console.log("disconnected from port: "+input);
     $scope.connected = false;
   });
@@ -85,4 +82,10 @@ app.controller('nodeSerial', function($scope, socket){
   	socket.emit('ButtonPush', ledColor);
   	console.log('ButtonPush', ledColor);
   };
+
+  $scope.changeAngle = function(){
+    changeAngles("processingCanvas", $scope.hoek1, $scope.hoek2);
+    console.log(Math.cos((pi/180)*30));
+
+  }
 })

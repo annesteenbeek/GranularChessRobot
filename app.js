@@ -28,7 +28,6 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	serial.on('data', function(data){
-		console.log(data);
 		parseSerial(socket, data);
 	});
 
@@ -50,12 +49,13 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	// all functions that write to serial port.
-	// if(serial.isOpen()){
 		socket.on('ButtonPush', function(color){
-			buttonPush(color);
+			if(serial.isOpen()){
+				buttonPush(color);
+			};
 		});
-	// };
 });
+
 
 function parseSerial(socket, data){
 	console.log(data);
