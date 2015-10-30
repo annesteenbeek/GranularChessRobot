@@ -62,34 +62,40 @@ io.sockets.on('connection', function (socket) {
 				buttonPush(color);
 			};
 		});
-		socket.on('switchPump', function (state){
+		socket.on('switchPump', function (){
 			if(serial.isOpen()){
-				serial.write('switchPump'); 
+				serial.write('switchPump');
+				console.log("set switchPump");
 			};
 		});
-		socket.on('startCalibration', function (state){
+		socket.on('startCalibration', function (){
 			if(serial.isOpen()){
-				serial.write('startCalibration'); 
+				serial.write('startCalibration');
+				console.log("set startCalibration");
 			};
 		});
-		socket.on('enableEMG', function (state){
+		socket.on('enableEMG', function (){
 			if(serial.isOpen()){
-				serial.write('enableEMG'); 
+				serial.write('enableEMG');
+				console.log("set enableEMG");
 			};
 		});
-		socket.on('usePotmeters', function (state){
+		socket.on('usePotmeters', function (){
 			if(serial.isOpen()){
-				serial.write('usePotmeters'); 
+				serial.write('usePotmeters');
+				console.log("set usePotmeters");
 			};
 		});
-		socket.on('controlAngle', function (state){
+		socket.on('controlAngle', function (){
 			if(serial.isOpen()){
-				serial.write('controlAngle'); 
+				serial.write('controlAngle');
+				console.log("set controlAngle");
 			};
 		});
-		socket.on('controlDirection', function (state){
+		socket.on('controlDirection', function (){
 			if(serial.isOpen()){
-				serial.write('controlDirection'); 
+				serial.write('controlDirection');
+				console.log("set controlDirection");
 			};
 		});
 });
