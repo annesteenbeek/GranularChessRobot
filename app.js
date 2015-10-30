@@ -64,37 +64,37 @@ io.sockets.on('connection', function (socket) {
 		});
 		socket.on('switchPump', function (){
 			if(serial.isOpen()){
-				serial.write('switchPump');
+				serial.write('switchPump\n');
 				console.log("set switchPump");
 			};
 		});
 		socket.on('startCalibration', function (){
 			if(serial.isOpen()){
-				serial.write('startCalibration');
+				serial.write('startCalibration\n');
 				console.log("set startCalibration");
 			};
 		});
 		socket.on('enableEMG', function (){
 			if(serial.isOpen()){
-				serial.write('enableEMG');
+				serial.write('enableEMG\n');
 				console.log("set enableEMG");
 			};
 		});
 		socket.on('usePotmeters', function (){
 			if(serial.isOpen()){
-				serial.write('usePotmeters');
+				serial.write('usePotmeters\n');
 				console.log("set usePotmeters");
 			};
 		});
 		socket.on('controlAngle', function (){
 			if(serial.isOpen()){
-				serial.write('controlAngle');
+				serial.write('controlAngle\n');
 				console.log("set controlAngle");
 			};
 		});
 		socket.on('controlDirection', function (){
 			if(serial.isOpen()){
-				serial.write('controlDirection');
+				serial.write('controlDirection\n');
 				console.log("set controlDirection");
 			};
 		});
