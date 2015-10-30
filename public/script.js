@@ -162,12 +162,12 @@ app.controller('nodeSerial', function($scope, socket){
   }
   $scope.setControlAngle = function (){
     $scope.controlAngle = !$scope.controlAngle
-    console.log("direction state is: "+$scope.controlAngle);
+    console.log("angle state is: "+$scope.controlAngle);
     socket.emit('controlAngle');
   }
   $scope.setControlDirection = function (){
     $scope.controlDirection = !$scope.controlDirection
-    console.log("angle state is: "+$scope.controlDirection);
+    console.log("direction state is: "+$scope.controlDirection);
     socket.emit('controlDirection');
   }
 

@@ -44,10 +44,12 @@
     </div>
   </div>
   <div class="col-md-12">
-    <button class="btn btn-default" ng-model="EMGonCheck" ng-click="setEnableEMG()" ng:class="{true:'active', false:''}[enableEMG]">use EMG</button>  <br>
-    <button class="btn btn-default" ng-model="potOnCheck" ng-click="setUsePotmeters()" ng:class="{true:'active', false:''}[usePotmeters]">use potmeters</button>  <br>
-    <button class="btn btn-default" ng-model="directionCheck" click="setControlDirection()" ng:class="{true:'active', false:''}[controlDirection]">control the direction</button>  <br>
-    <button class="btn btn-default" ng-model="angleCheck" ng-click="setControlAngle()" ng:class="{true:'active', false:''}[controlAngle]">control the angles</button>  <br>
+    <button class="btn btn-default" ng-click="setEnableEMG()" ng:class="{true:'active', false:''}[enableEMG]">use EMG</button>  <br>
+    <button class="btn btn-default" ng-click="setUsePotmeters()" ng:class="{true:'active', false:''}[usePotmeters]">use potmeters</button>  <br>
+    <button class="btn btn-default" ng-click="setControlDirection()" ng:class="{true:'active', false:''}[controlDirection]">control the direction</button>  <br>
+    <button class="btn btn-default" ng-click="setControlAngle()" ng:class="{true:'active', false:''}[controlAngle]">control the angles</button>  <br>
+    <button class="btn btn-default" ng-click="setStartCalibration()"></button> <br>
+    <!-- <button class="btn btn-default" ng-click="setSwitchPump()"></button> <br> -->
 
   </div>
   <div class="col-md-12">
