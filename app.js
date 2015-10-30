@@ -1,3 +1,11 @@
+//    ________                                 __          __                   __   
+//   / ____/ /_  ___  __________   _________  / /_  ____  / /_   _      _____  / /_  
+//  / /   / __ \/ _ \/ ___/ ___/  / ___/ __ \/ __ \/ __ \/ __/  | | /| / / _ \/ __ \ 
+// / /___/ / / /  __(__  |__  )  / /  / /_/ / /_/ / /_/ / /_    | |/ |/ /  __/ /_/ / 
+// \____/_/ /_/\___/____/____/  /_/   \____/_.___/\____/\__/    |__/|__/\___/_.___/  
+//                                                                                   
+
+
 var http = require('http');
 var express = require('express');
 var app = express();
@@ -52,6 +60,36 @@ io.sockets.on('connection', function (socket) {
 		socket.on('ButtonPush', function(color){
 			if(serial.isOpen()){
 				buttonPush(color);
+			};
+		});
+		socket.on('switchPump', function (state){
+			if(serial.isOpen()){
+				serial.write('switchPump'); 
+			};
+		});
+		socket.on('startCalibration', function (state){
+			if(serial.isOpen()){
+				serial.write('startCalibration'); 
+			};
+		});
+		socket.on('enableEMG', function (state){
+			if(serial.isOpen()){
+				serial.write('enableEMG'); 
+			};
+		});
+		socket.on('usePotmeters', function (state){
+			if(serial.isOpen()){
+				serial.write('usePotmeters'); 
+			};
+		});
+		socket.on('controlAngle', function (state){
+			if(serial.isOpen()){
+				serial.write('controlAngle'); 
+			};
+		});
+		socket.on('controlDirection', function (state){
+			if(serial.isOpen()){
+				serial.write('controlDirection'); 
 			};
 		});
 });

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link href="/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
 <script src="/bower_components/processing/processing.js"></script>
 </head>
 <body ng-app="MyApp" ng-controller="nodeSerial">
@@ -38,9 +39,16 @@
       <button  class="btn btn-danger control-group" ng-click="blinkLed('Red')">Blink Led</button>
       <button  class="btn btn-success control-group" ng-click="blinkLed('Green')">Blink Led</button>
       <button  class="btn btn-primary control-group" ng-click="blinkLed('Blue')">Blink Led</button>
-      <input type="text" ng-model="hoek1" ng-change="changeAngle()"><br>
-      <input type="text" ng-model="hoek2" ng-change="changeAngle()"><br>
+      <!-- <input type="text" ng-model="hoek1" ng-change="changeAngle()"><br> -->
+      <!-- <input type="text" ng-model="hoek2" ng-change="changeAngle()"><br> -->
     </div>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-default" ng-model="EMGonCheck" ng-click="setEnableEMG()" ng:class="{true:'active', false:''}[enableEMG]">use EMG</button>  <br>
+    <button class="btn btn-default" ng-model="potOnCheck" ng-click="setUsePotmeters()" ng:class="{true:'active', false:''}[usePotmeters]">use potmeters</button>  <br>
+    <button class="btn btn-default" ng-model="directionCheck" click="setControlDirection()" ng:class="{true:'active', false:''}[controlDirection]">control the direction</button>  <br>
+    <button class="btn btn-default" ng-model="angleCheck" ng-click="setControlAngle()" ng:class="{true:'active', false:''}[controlAngle]">control the angles</button>  <br>
+
   </div>
   <div class="col-md-12">
   <h2>Controlling: {{DOF}}</h2> <br>
@@ -58,7 +66,15 @@
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
 <script type="application/javascript" src="script.js"></script>
+<script>
+// enable switches
+  // $("[name='EMGon']").bootstrapSwitch();
+  // $("[name='potOn']").bootstrapSwitch();
+  // $("[name='direction']").bootstrapSwitch();
+  // $("[name='angle']").bootstrapSwitch();
+</script>
 <script>
   function changeAngles(id, theta1, theta2) {
     var pjs = Processing.getInstanceById(id);

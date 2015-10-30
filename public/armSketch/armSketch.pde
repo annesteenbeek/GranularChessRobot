@@ -63,6 +63,6 @@ void drawTable(){
 void setAngles(angle1, angle2){
   theta1 = parseFloat(angle1);
   theta2 = parseFloat(angle2);
-  console.log(theta1+theta2);
-  console.log(cos((pi/180)*(parseFloat(angle1)+parseFloat(angle2))));
+  // console.log(theta1+theta2);
+  // console.log(cos((pi/180)*(parseFloat(angle1)+parseFloat(angle2))));
 }
